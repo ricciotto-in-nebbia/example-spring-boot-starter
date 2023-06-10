@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "app.user.age",
+      "type": "java.lang.Integer",
+      "description": "Age of the user",
+      "sourceType": "dev.riccio.example.property.UserProperties"
+    },
+    {
+      "name": "app.user.name",
+      "type": "java.lang.String",
+      "description": "Name of the user",
+      "sourceType": "dev.riccio.example.property.UserProperties"
+    }
+  ],
+  "hints": [
+    {
+      "name": "app.user.name",
+      "values": [
+        {
+          "value": "J.Daniels"
+        },
+        {
+          "value": "J.Walker"
+        },
+        {
+          "value": "J.Black"
+        }
+      ]
+    },
+    {
+      "name": "app.user.age",
+      "values": [
+        {
+          "value": "3",
+          "description": "Normal"
+        },
+        {
+          "value": "5",
+          "description": "Good"
+        },
+        {
+          "value": "12",
+          "description": "Perfect"
+        }
+      ]
+    }
+  ]
+}

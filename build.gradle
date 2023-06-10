@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'dev.riccio'
+version '0.1.0-SNAPSHOT'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.named('compileJava') {
+    inputs.files(tasks.named('processResources'))
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:2.7.12"
+    implementation 'org.springframework.boot:spring-boot-starter:2.7.12'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.12'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    implementation 'org.projectlombok:lombok:1.18.26'
+
+    testImplementation platform('org.junit:junit-bom:5.9.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.12'
+    testImplementation 'org.springframework.boot:spring-boot-test:2.7.12'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

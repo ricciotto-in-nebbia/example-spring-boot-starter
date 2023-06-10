@@ -1,0 +1,23 @@
+# Initializers
+org.springframework.context.ApplicationContextInitializer=\
+dev.riccio.example.config.initializer.ApplicationConfigurationInitializer
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+dev.riccio.example.config.listener.ApplicationStartedListener
+
+# Environment Post Processors
+org.springframework.boot.env.EnvironmentPostProcessor=\
+dev.riccio.example.config.handler.ActiveProfileHandler, \
+dev.riccio.example.config.handler.EnvironmentHandler, \
+dev.riccio.example.config.handler.RequiredPropertiesHandler
+
+# Auto Configurations
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+dev.riccio.example.service.ExampleService, \
+dev.riccio.example.factory.ExampleServiceBeanFactory, \
+dev.riccio.example.config.property.PropertiesConfiguration, \
+dev.riccio.example.event.ExampleEventPublisher
+
+
+
